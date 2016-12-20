@@ -1,4 +1,4 @@
-package designer;
+package decorator;
 
 
 public class BicycleDecorator extends Bicycle {

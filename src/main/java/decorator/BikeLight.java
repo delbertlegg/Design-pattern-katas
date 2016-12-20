@@ -1,4 +1,4 @@
-package designer;
+package decorator;
 
 public class BikeLight extends BicycleDecorator {
 	private String batteryType;

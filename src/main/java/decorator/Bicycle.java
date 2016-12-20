@@ -1,4 +1,4 @@
-package designer;
+package decorator;
 
 public class Bicycle extends TrackableItem {
 	public Bicycle() {

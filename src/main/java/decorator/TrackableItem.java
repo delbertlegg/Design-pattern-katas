@@ -1,4 +1,4 @@
-package designer;
+package decorator;
 
 import java.io.Serializable;
 

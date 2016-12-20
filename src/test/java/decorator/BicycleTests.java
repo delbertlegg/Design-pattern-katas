@@ -1,12 +1,13 @@
-package designer;
+package decorator;
 
 import static org.junit.Assert.*;
 
 import org.junit.*;
 
-import designer.BicycleDecorator.Builder;
-import designer.BikeLight.LightBuilder;
-import designer.BikeBrakes.BrakeBuilder;
+import decorator.Bicycle;
+import decorator.BicycleDecorator.Builder;
+import decorator.BikeBrakes.BrakeBuilder;
+import decorator.BikeLight.LightBuilder;
 
 public class BicycleTests {
 	private static Bicycle bicycle;
