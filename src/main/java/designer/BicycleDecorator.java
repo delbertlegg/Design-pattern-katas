@@ -1,6 +1,5 @@
 package designer;
 
-import designer.BikeLight.LightBuilder;
 
 public class BicycleDecorator extends Bicycle {
 	protected Bicycle bicycle;
@@ -12,9 +11,8 @@ public class BicycleDecorator extends Bicycle {
 		protected String serialNumber;
 		protected double cost;
 		
-		public T bicycle (Bicycle b) {
+		public Builder (Bicycle b) {
 			this.bicycle = b;
-			return (T) this;
 		}
 		
 		
@@ -51,12 +49,22 @@ public class BicycleDecorator extends Bicycle {
 		itemCost = builder.cost;
 	}
 	
+	public String getType() {
+		return "Generic decorator";
+	}
+	
+	@Override 
+	public double value() {
+		return this.itemCost + bicycle.value();
+	}
+	
 	public String toString() {
-		return String.format("%s\t" +
+		return String.format("%s" +
+							 "Type: %s\n" + 
 							 "Make: %s\n" +
 							 "Model: %s\n" +
 							 "Serial Number: %s\n" +
 							 "Cost: %.2f\n", 
-		bicycle.toString(), getItemMake(), getItemModel(), getItemSerialNumber(), getItemCost());
+		 bicycle.toString(), this.getType(), getItemMake(), getItemModel(), getItemSerialNumber(), getItemCost());
 	}
 }

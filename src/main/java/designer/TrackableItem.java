@@ -31,4 +31,6 @@ public abstract class TrackableItem implements Serializable {
 	public abstract void setItemCost(Double cost);
 	
 	public abstract String toString();
+	
+	public abstract double value();
 }

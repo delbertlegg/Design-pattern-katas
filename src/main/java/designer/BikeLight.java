@@ -5,6 +5,10 @@ public class BikeLight extends BicycleDecorator {
 	private String bulbType;
 	
 	public static class LightBuilder extends BicycleDecorator.Builder<LightBuilder> {		
+		public LightBuilder(Bicycle b) {
+			super(b);
+		}
+
 		private String batteryType;
 		private String bulbType;
 		
@@ -45,13 +49,17 @@ public class BikeLight extends BicycleDecorator {
 	public void setBulbType(String bulbType) {
 		this.bulbType = bulbType;
 	}
+	
+	@Override
+	public String getType() {
+		return "Bike Light";
+	}
 
 	@Override
 	public String toString() {
 		return String.format("%s" +
 							 "Battery Type: %s\n" +
-							 "Bulb Type: %s\n",
+							 "Bulb Type: %s\n\n",
 		super.toString(), getBatteryType(), getBulbType());
 	}
-
 }

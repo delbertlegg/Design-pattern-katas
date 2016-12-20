@@ -48,6 +48,12 @@ public class Bicycle extends TrackableItem {
 	public void setItemCost(Double cost) {
 		itemCost = cost;
 	}
+	
+    @Override
+	public double value() {
+		// TODO Auto-generated method stub
+		return getItemCost();
+	}
 
 	@Override
 	public String toString() {
@@ -55,7 +61,7 @@ public class Bicycle extends TrackableItem {
 							 "Model: %s\n" +
 							 "Serial Number: %s\n" +
 							 "Cost: %.2f\n" + 
-							 "Acessories - \n", getItemMake(), getItemModel(), getItemSerialNumber(), getItemCost());
+							 "Acessories - \n\n", getItemMake(), getItemModel(), getItemSerialNumber(), getItemCost());
 	}
 
 }
