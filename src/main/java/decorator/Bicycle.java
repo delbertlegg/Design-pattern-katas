@@ -1,6 +1,6 @@
 package decorator;
 
-public class Bicycle extends TrackableItem {
+public abstract class Bicycle extends TrackableItem {
 	public Bicycle() {
 		super();
 	}

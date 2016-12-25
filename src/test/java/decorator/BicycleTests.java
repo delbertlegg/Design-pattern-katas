@@ -35,7 +35,7 @@ public class BicycleTests {
 	
 	@BeforeClass
 	public static void beforeClass() {
-		bicycle = new Bicycle("Montague", "Navigator", "A12345", 900.00);
+		bicycle = new CommuterBike("Montague", "Navigator", "A12345", 900.00);
 	}
 	
 	public Builder createNewLight(Bicycle b) {
@@ -82,5 +82,11 @@ public class BicycleTests {
 	public void BikeValueWithBrakes() {
 		Bicycle bikeWithBrakes = createNewBrakes(bicycle).build();
 		assertEquals(0, Double.compare(bikeWithBrakes.value(), bicycle.getItemCost() + bikeWithBrakes.getItemCost()));
+	}
+	
+	@Ignore
+	@Test
+	public void removeBikeDecoratorTest() {
+		// add with Chain of Responsibility pattern?
 	}
 }
