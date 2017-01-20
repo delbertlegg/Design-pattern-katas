@@ -1,25 +1,21 @@
 package command;
 
 public class DirectionChanger {
-	Direction direction;
-	public DirectionChanger(Direction dir) {
+	Orientation direction;
+	public DirectionChanger(Orientation dir) {
 		this.direction = dir;
 	}
 	
-	public Direction getDirection() {
-		return direction;
-	}
-	
 	public void setDirection(Direction dir) {
-		direction = dir;
+		direction.setDirection(dir);
 	}
 	
 	public void rotateRight() {
-		direction = direction.next();
+		direction.setDirection(direction.getDirection().next());
 	}
 
 	public void rotateLeft() {
-		direction = direction.previous();
+		direction.setDirection(direction.getDirection().previous());
 	}
 
 }

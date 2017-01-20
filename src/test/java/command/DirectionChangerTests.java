@@ -5,36 +5,38 @@ import static org.junit.Assert.*;
 import org.junit.*;
 
 public class DirectionChangerTests {
+	Orientation dir;
 	DirectionChanger dc;
 	
 	@Before
 	public void setUp() {
-		dc = new DirectionChanger(Direction.NORTH);
+		dir = new Orientation();
+		dc = new DirectionChanger(dir);
 	}
 
 	@Test
 	public void roverRotates360clockwise() {
 		dc.rotateRight();
-		assertEquals(Direction.EAST, dc.getDirection());
+		assertEquals(Direction.EAST, dir.getDirection());
 		dc.rotateRight();
-		assertEquals(Direction.SOUTH, dc.getDirection());
+		assertEquals(Direction.SOUTH, dir.getDirection());
 		dc.rotateRight();
-		assertEquals(Direction.WEST, dc.getDirection());
+		assertEquals(Direction.WEST, dir.getDirection());
 		dc.rotateRight();
-		assertEquals(Direction.NORTH, dc.getDirection());
+		assertEquals(Direction.NORTH, dir.getDirection());
 		
 	}
 	
 	@Test
 	public void roverRotates360counterClockwise() {
 		dc.rotateLeft();
-		assertEquals(Direction.WEST,dc.getDirection());
+		assertEquals(Direction.WEST,dir.getDirection());
 		dc.rotateLeft();
-		assertEquals(Direction.SOUTH, dc.getDirection());
+		assertEquals(Direction.SOUTH, dir.getDirection());
 		dc.rotateLeft();
-		assertEquals(Direction.EAST, dc.getDirection());
+		assertEquals(Direction.EAST, dir.getDirection());
 		dc.rotateLeft();
-		assertEquals(Direction.NORTH, dc.getDirection());
+		assertEquals(Direction.NORTH, dir.getDirection());
 	}
 
 }

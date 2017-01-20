@@ -1,5 +1,12 @@
 package command;
 
+
+/*
+ * With moving the Point Mover and Direction Changer outside of Rover, does this class need to even exist?
+ * Rover location and direction can be passed as parameters in constructors for the integration classes,
+ * then command classes can take the integration class in the constructor and invoke the methods in the execute()
+ * method.
+ */
 public class RoverMover {
 	private static RoverMover roverMover;
 	private Rover rover;
