@@ -53,20 +53,6 @@ public class BicycleDecorator extends Bicycle {
 		return "Generic decorator";
 	}
 	
-	public Bicycle getBicycle() {
-		return this.bicycle;
-	}
-	
-	public void removeDecoration(BicycleDecorator decorator) {
-		Class decoratorClass = decorator.getClass();
-		while (this.bicycle instanceof BicycleDecorator) {
-			if (decoratorClass.getClass().isInstance(this.bicycle)) {
-				this.bicycle = ((BicycleDecorator)this.bicycle).getBicycle();
-			}
-			else removeDecoration((BicycleDecorator)this.bicycle);
-		}		
-	}
-	
 	@Override 
 	public double value() {
 		return this.itemCost + bicycle.value();
