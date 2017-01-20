@@ -83,4 +83,14 @@ public class BicycleTests {
 		Bicycle bikeWithBrakes = createNewBrakes(bicycle).build();
 		assertEquals(0, Double.compare(bikeWithBrakes.value(), bicycle.getItemCost() + bikeWithBrakes.getItemCost()));
 	}
+	
+	@Test
+	public void RemoveBikeLightTest() {
+		Bicycle bikeWithLight = createNewLight(bicycle).build();
+		Bicycle bikeWithBrakes = createNewBrakes(bikeWithLight).build();
+		((BicycleDecorator)bikeWithBrakes).removeDecoration((BicycleDecorator)bikeWithLight);
+		assertEquals(0, Double.compare(bikeWithBrakes.value(), 
+				bicycle.getItemCost() + bikeWithBrakes.getItemCost()));
+	}
+	
 }
