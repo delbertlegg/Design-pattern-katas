@@ -2,8 +2,9 @@ package command;
 
 public class Rover {
 	private static Rover rover;
-	private Direction currentDirection;
-	private Point location;
+	private DirectionChanger dirChanger = new DirectionChanger(Direction.NORTH);
+	private Point location = new Point(0, 0);
+	private PointMover pointMover = new PointMover(location);
 	private Rover() {}
 	
 	public static Rover getInstance() {
@@ -14,37 +15,19 @@ public class Rover {
 	}
 
 	public void setDirection(Direction direction) {
-		currentDirection = direction;
+		dirChanger.setDirection(direction);		
 	}
 	
 	public Direction getDirection() {
-		return currentDirection;
+		return dirChanger.getDirection();
 	}
 
-	public void setStartingPoint(int x, int y) {
-		if (location == null) {
-			location = new Point(0, 0);
-		}
+	public void setLocation(int x, int y) {
 		location.setX(x);
-		location.setY(y);
+		location.setY(y);		
 	}
 	
 	public Point getLocation() {
 		return location;
-	}
-
-	public void rotateRight() {
-		currentDirection = currentDirection.next();
-	}
-
-	public void rotateLeft() {
-		currentDirection = currentDirection.previous();
-	}
-
-	public void goForward() {
-		switch(currentDirection) {
-		case NORTH:
-			location.moveNorth();
-		}
-	}
+	}	
 }

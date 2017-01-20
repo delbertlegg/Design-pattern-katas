@@ -1,7 +1,8 @@
 package command;
-
+	
 public enum Direction {
 	NORTH, EAST, SOUTH, WEST;
+	
 	private static Direction[] directions = values();
 	
 	public Direction next() {
@@ -12,3 +13,5 @@ public enum Direction {
 		return directions[(this.ordinal() + 3) % directions.length];
 	}
 }
+	
+

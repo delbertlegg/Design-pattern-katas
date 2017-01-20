@@ -22,39 +22,6 @@ public class RoverTests {
 	@Before
 	public void beforeMethod() {
 		rover.setDirection(Direction.NORTH);
-		rover.setStartingPoint(0, 0);
+		rover.setLocation(0, 0);
 	}
-	
-	@Test
-	public void roverRotates360clockwise() {
-		rover.rotateRight();
-		assertEquals(Direction.EAST, rover.getDirection());
-		rover.rotateRight();
-		assertEquals(Direction.SOUTH, rover.getDirection());
-		rover.rotateRight();
-		assertEquals(Direction.WEST, rover.getDirection());
-		rover.rotateRight();
-		assertEquals(Direction.NORTH, rover.getDirection());
-		
-	}
-	
-	@Test
-	public void roverRotates360counterClockwise() {
-		rover.rotateLeft();
-		assertEquals(Direction.WEST, rover.getDirection());
-		rover.rotateLeft();
-		assertEquals(Direction.SOUTH, rover.getDirection());
-		rover.rotateLeft();
-		assertEquals(Direction.EAST, rover.getDirection());
-		rover.rotateLeft();
-		assertEquals(Direction.NORTH, rover.getDirection());
-	}
-	
-	@Test
-	public void roverMovesOneSpaceNorth() {
-		rover.goForward();
-		assertEquals(0, rover.getLocation().getX());
-		assertEquals(1, rover.getLocation().getY());
-	}	
-
 }
