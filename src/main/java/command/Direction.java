@@ -1,5 +1,5 @@
 package command;
-	
+// change to class (orientation?) so direction can be changed as an object passed to directionchanger?
 public enum Direction {
 	NORTH, EAST, SOUTH, WEST;
 	

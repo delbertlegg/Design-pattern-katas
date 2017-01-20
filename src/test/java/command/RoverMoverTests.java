@@ -17,11 +17,14 @@ Develop an api that moves a rover around on a grid.
 *   last possible point and reports the obstacle.
 */
 
-public class RoverTests {
+public class RoverMoverTests {
 	Rover rover = Rover.getInstance();
+	RoverMover roverMover; 
+	
 	@Before
-	public void beforeMethod() {
+	public void setUp() {
 		rover.setDirection(Direction.NORTH);
 		rover.setLocation(0, 0);
+		roverMover = RoverMover.getRoverMoverForRover(rover); 
 	}
 }

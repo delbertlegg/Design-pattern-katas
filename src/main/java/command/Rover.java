@@ -2,9 +2,9 @@ package command;
 
 public class Rover {
 	private static Rover rover;
-	private DirectionChanger dirChanger = new DirectionChanger(Direction.NORTH);
+	protected DirectionChanger dirChanger = new DirectionChanger(Direction.NORTH);
 	private Point location = new Point(0, 0);
-	private PointMover pointMover = new PointMover(location);
+	protected PointMover pointMover = new PointMover(location);
 	private Rover() {}
 	
 	public static Rover getInstance() {
