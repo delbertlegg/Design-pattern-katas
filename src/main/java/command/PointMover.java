@@ -6,14 +6,6 @@ public class PointMover {
 		this.point = point;
 	}
 	
-	public void setPoint(Point p) {
-		if (point == null) {
-			point = new Point(0, 0);
-		}
-		point.setX(p.getX());
-		point.setY(p.getY());
-	}
-	
 	public void moveNorth() {
 		point.setY(point.getY() + 1);		
 	}	

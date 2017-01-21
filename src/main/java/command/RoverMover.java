@@ -1,25 +1,31 @@
 package command;
 
-
-/*
- * With moving the Point Mover and Direction Changer outside of Rover, does this class need to even exist?
- * Rover location and direction can be passed as parameters in constructors for the integration classes,
- * then command classes can take the integration class in the constructor and invoke the methods in the execute()
- * method.
- */
 public class RoverMover {
 	private static RoverMover roverMover;
 	private Rover rover;
+	private PointMover pm;
+	private DirectionChanger dc;
 	private RoverMover(Rover rover) {
 		this.rover = rover;
 	}
 	
-	public static RoverMover getRoverMoverForRover(Rover rover) {
+	public static RoverMover getRoverMover(Rover rover) {
 		if (roverMover == null) {
 			roverMover = new RoverMover(rover);
 		}
 		else roverMover.setRover(rover);
+		roverMover.setPointMover(rover);
+		roverMover.setDirectionChanger(rover);
+
 		return roverMover;		
+	}
+
+	private void setPointMover(Rover rover) {
+		roverMover.pm = new PointMover(rover.getPoint());
+	}
+
+	private void setDirectionChanger(Rover rover) {
+		roverMover.dc = new DirectionChanger(rover.getOrientation());
 	}
 
 	private void setRover(Rover rover) {
@@ -29,16 +35,16 @@ public class RoverMover {
 	public void moveForward() {
 		switch(rover.getDirection()) {
 		case NORTH:
-			rover.pointMover.moveNorth();
+			pm.moveNorth();
 			break;
 		case SOUTH:
-			rover.pointMover.moveSouth();
+			pm.moveSouth();
 			break;
 		case EAST:
-			rover.pointMover.moveEast();
+			pm.moveEast();
 			break;
 		case WEST:
-			rover.pointMover.moveWest();
+			pm.moveWest();
 			break;
 		}
 	}
@@ -46,28 +52,25 @@ public class RoverMover {
 	public void moveBackward() {
 		switch(rover.getDirection()) {
 		case NORTH:
-			rover.pointMover.moveSouth();
+			pm.moveSouth();
 			break;
 		case SOUTH:
-			rover.pointMover.moveNorth();
+			pm.moveNorth();
 			break;
 		case EAST:
-			rover.pointMover.moveWest();
+			pm.moveWest();
 			break;
 		case WEST:
-			rover.pointMover.moveEast();
+			pm.moveEast();
 			break;
 		}
 	}
 	
 	public void rotateRight() {
-		rover.dirChanger.rotateRight();
+		dc.rotateRight();
 	}
 	
 	public void rotateLeft() {
-		rover.dirChanger.rotateLeft();
+		dc.rotateLeft();
 	}
-	
-	
-
 }

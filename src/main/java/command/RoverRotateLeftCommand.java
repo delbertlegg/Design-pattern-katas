@@ -1,14 +1,13 @@
 package command;
 
 public class RoverRotateLeftCommand implements Command {
-	private DirectionChanger dirChanger;
-	public RoverRotateLeftCommand(DirectionChanger dir) {
-		dirChanger = dir;
+	private RoverMover rm;
+	public RoverRotateLeftCommand(RoverMover rm) {
+		this.rm = rm;
 	}
 	
-	@Override
 	public void execute() {
-		dirChanger.rotateLeft();
+		rm.rotateLeft();
 	}
 
 }

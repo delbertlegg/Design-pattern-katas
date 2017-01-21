@@ -21,7 +21,7 @@ public class EventSimulator {
 		
 		Event oneWeirdGuyStanding = new Event();
 		Attendee weirdGuy = new Spectator();
-		weirdGuy.display.setDisplay("Douchebag");
+		weirdGuy.display.setDisplay("Weird Guy");
 		
 		oneWeirdGuyStanding.attendees.add(weirdGuy);
 		oneWeirdGuyStanding.beginCompetition();

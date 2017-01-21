@@ -4,7 +4,8 @@ package decorator;
 public class BicycleDecorator extends decorator.Bicycle {
 	protected decorator.Bicycle bicycle;
 	
-	public static class Builder <T extends Builder> {		
+	@SuppressWarnings("unchecked")
+    public static class Builder <T extends Builder> {
 		protected decorator.Bicycle bicycle;
 		protected String make;
 		protected String model;
