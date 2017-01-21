@@ -1,16 +1,22 @@
 package command;
 
-import java.util.LinkedHashMap;
+// TODO: Test with mocks?
+
+import java.util.HashMap;
 import java.util.Map;
 
 public class RoverControl {
-    Map<String, Command> commands;
-    public RoverControl() {
-        commands = new LinkedHashMap<>();
+    private Map<String, Command> commands;
+    public RoverControl(RoverMover rm) {
+        commands = new HashMap<>();
+        setControls(rm);
     }
 
     public void executeCommand(String s) {
-        commands.get(s).execute();
+        if (commands.get(s) != null){
+            commands.get(s).execute();
+        }
+        else throw new IllegalArgumentException(s + " is not a valid command.");
     }
 
     public void setControls(RoverMover roverMover) {

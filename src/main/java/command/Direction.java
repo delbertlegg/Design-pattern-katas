@@ -4,7 +4,7 @@ public enum Direction {
 	NORTH("N"), EAST("E"), SOUTH("S"), WEST("W");
 	private final String stringVal;
 
-	private Direction(String s) {
+	Direction(String s) {
 		stringVal = s;
 	}
 
@@ -15,15 +15,16 @@ public enum Direction {
 	}
 	
 	public Direction previous() {
-		return directions[(this.ordinal() + 3) % directions.length];
+		return directions[(this.ordinal() + (directions.length - 1)) % directions.length];
 	}
 
-	public static Direction getDirectionByString (String s) throws Exception {
+	public static Direction getDirectionByString (String s) {
 		for (Direction d : directions) {
 			if (s.equals(d.stringVal)) {
 				return d;
 			}
 		}
-		throw new Exception(s + " does not match any existing directions");
+		throw new IllegalArgumentException(s + " does not match any existing directions" +
+				". Exiting...");
 	}
 }

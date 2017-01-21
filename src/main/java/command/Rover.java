@@ -1,5 +1,7 @@
 package command;
 
+import java.util.InputMismatchException;
+
 public class Rover {
 	private static Rover rover;
 	private Orientation direction = new Orientation();
@@ -23,7 +25,7 @@ public class Rover {
 
 	public void setLocation(int x, int y) {
 		location.setX(x);
-		location.setY(y);		
+		location.setY(y);
 	}
 
 	public  Orientation getOrientation() {

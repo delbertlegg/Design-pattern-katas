@@ -2,6 +2,7 @@ package command;
 
 import static org.junit.Assert.*;
 
+import com.sun.xml.internal.fastinfoset.algorithm.BuiltInEncodingAlgorithmState;
 import org.junit.*;
 
 public class DirectionChangerTests {

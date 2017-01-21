@@ -6,10 +6,6 @@ public class DirectionChanger {
 		this.direction = dir;
 	}
 	
-	public void setDirection(Direction dir) {
-		direction.setDirection(dir);
-	}
-	
 	public void rotateRight() {
 		direction.setDirection(direction.getDirection().next());
 	}
