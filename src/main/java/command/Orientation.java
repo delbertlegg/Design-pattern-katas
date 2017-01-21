@@ -6,11 +6,7 @@ public class Orientation {
 	public Orientation() {
 		setDirection(Direction.NORTH);
 	}
-	
-	public Orientation (Direction dir) {
-		setDirection(dir);
-	}
-	
+
 	public Direction getDirection() {
 		return direction;
 	}

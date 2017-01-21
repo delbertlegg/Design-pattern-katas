@@ -1,41 +1,59 @@
 package command;
 
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RoverClient {
     public static void main (String[] args) {
         Rover rover = Rover.getInstance();
-        int x, y;
         Scanner in = new Scanner(System.in);
-        System.out.println("Enter xy coordinates for rover (in x y format): ");
-        x = in.nextInt();
-        y = in.nextInt();
-        in.nextLine();
+        boolean inputValid = false;
+        while (!inputValid) {
+            try {
+                int x, y;
+                System.out.println("Enter xy coordinates for rover (in x y format): ");
+                x = in.nextInt();
+                y = in.nextInt();
+                rover.setLocation(x, y);
+                in.nextLine();
 
-        System.out.println("Enter direction (N, E, S, W): ");
-        String dir = in.nextLine();
-        try {
-            rover.setDirection(Direction.getDirectionByString(dir));
+                System.out.println("Enter direction (N, E, S, W): ");
+                String dir = in.next();
+                rover.setDirection(Direction.getDirectionByString(dir));
+                in.nextLine();
+
+                RoverMover roverMover = RoverMover.getRoverMover(rover);
+                RoverControl control = new RoverControl(roverMover);
+
+                System.out.println("Enter a string of commands (no spaces)...");
+                System.out.println("f = forward, b = backward, l = left, r = right: ");
+
+                String commands = in.next();
+
+                for (int i = 0; i < commands.length(); i++) {
+                    control.executeCommand(Character.toString(commands.charAt(i)));
+                }
+                in.nextLine();
+
+
+                System.out.println("Rover is pointing " + rover.getDirection());
+                System.out.println("Rover is at location " + rover.getPoint().getX() + ", "
+                        + rover.getPoint().getY());
+                inputValid = true;
+            }
+            catch (InputMismatchException e) {
+                in.nextLine();
+                System.out.println("Invalid input, please try again.");
+            }
+            catch (IllegalArgumentException e) {
+                in.nextLine();
+                System.out.println(e.getMessage());
+            }
+            catch (Exception e) {
+                in.nextLine();
+                e.printStackTrace();
+            }
         }
-        catch (Exception e) {
-            e.printStackTrace();
-            return;
-        }
-
-        rover.setLocation(x, y);
-        RoverMover roverMover = RoverMover.getRoverMover(rover);
-        RoverControl control = new RoverControl();
-        control.setControls(roverMover);
-
-        System.out.println("Enter a string of commands (no spaces)...");
-        System.out.println("f = forward, b = backward, l = left, r = right: ");
-        String  commands = in.nextLine();
-        for (int i = 0; i < commands.length(); i++) {
-            control.executeCommand(Character.toString(commands.charAt(i)));
-        }
-
-        System.out.println("Rover is pointing " + rover.getDirection());
-        System.out.println("Rover is at location " + rover.getPoint().getX() + ", " + rover.getPoint().getY());
     }
 }
