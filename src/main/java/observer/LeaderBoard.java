@@ -1,7 +1,6 @@
 package observer;
 
 import java.util.*;
-import java.util.Observer;
 
 public class LeaderBoard implements Observer {
 	private Observable observable;
