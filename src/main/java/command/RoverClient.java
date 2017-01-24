@@ -38,8 +38,8 @@ public class RoverClient {
 
 
                 System.out.println("Rover is pointing " + rover.getDirection());
-                System.out.println("Rover is at location " + rover.getPoint().getX() + ", "
-                        + rover.getPoint().getY());
+                System.out.println("Rover is at location " + rover.getLocation().getX() + ", "
+                        + rover.getLocation().getY());
                 inputValid = true;
             }
             catch (InputMismatchException e) {

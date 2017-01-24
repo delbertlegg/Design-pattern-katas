@@ -8,7 +8,7 @@ import java.util.Map;
 public class RoverControl {
     private Map<String, Command> commands;
     public RoverControl(RoverMover rm) {
-        commands = new HashMap<>();
+        commands = new HashMap<String, Command>();
         setControls(rm);
     }
 

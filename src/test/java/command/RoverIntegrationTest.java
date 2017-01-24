@@ -56,7 +56,7 @@ public class RoverIntegrationTest {
 
 	@Test
 	public void RoverMovesForwardOneSpaceNorth() {
-	    Point point = rover.getPoint();
+	    Point point = rover.getLocation();
 		RoverMoveForwardCommand forward = new RoverMoveForwardCommand(roverMover);
 		forward.execute();
 		assertEquals(0, point.getX());
@@ -65,7 +65,7 @@ public class RoverIntegrationTest {
 
 	@Test
 	public void RoverMovesForwardOneSpaceEast() {
-		Point point = rover.getPoint();
+		Point point = rover.getLocation();
 		RoverRotateRightCommand right = new RoverRotateRightCommand(roverMover);
 		right.execute();
 		RoverMoveForwardCommand forward = new RoverMoveForwardCommand(roverMover);
@@ -76,7 +76,7 @@ public class RoverIntegrationTest {
 
 	@Test
 	public void RoverMovesForwardOneSpaceSouth() {
-		Point point = rover.getPoint();
+		Point point = rover.getLocation();
 		RoverRotateRightCommand right = new RoverRotateRightCommand(roverMover);
 		right.execute();
 		right.execute();
@@ -88,7 +88,7 @@ public class RoverIntegrationTest {
 
 	@Test
 	public void RoverMovesForwardOneSpaceWest() {
-		Point point = rover.getPoint();
+		Point point = rover.getLocation();
 		RoverRotateLeftCommand left = new RoverRotateLeftCommand(roverMover);
 		left.execute();
 		RoverMoveForwardCommand forward = new RoverMoveForwardCommand(roverMover);
@@ -99,7 +99,7 @@ public class RoverIntegrationTest {
 
 	@Test
 	public void RoverMovesBackwardOneSpaceNorth() {
-		Point point = rover.getPoint();
+		Point point = rover.getLocation();
 		RoverMoveBackwardCommand backward = new RoverMoveBackwardCommand(roverMover);
 		backward.execute();
 		assertEquals(0, point.getX());
@@ -108,7 +108,7 @@ public class RoverIntegrationTest {
 
 	@Test
 	public void RoverMovesBackwardOneSpaceEast() {
-		Point point = rover.getPoint();
+		Point point = rover.getLocation();
 		RoverRotateRightCommand right = new RoverRotateRightCommand(roverMover);
 		right.execute();
 		RoverMoveBackwardCommand backward = new RoverMoveBackwardCommand(roverMover);
@@ -119,7 +119,7 @@ public class RoverIntegrationTest {
 
 	@Test
 	public void RoverMovesBackwardOneSpaceSouth() {
-		Point point = rover.getPoint();
+		Point point = rover.getLocation();
 		RoverRotateRightCommand right = new RoverRotateRightCommand(roverMover);
 		right.execute();
 		right.execute();
@@ -131,7 +131,7 @@ public class RoverIntegrationTest {
 
 	@Test
 	public void RoverMovesBackwardOneSpaceWest() {
-		Point point = rover.getPoint();
+		Point point = rover.getLocation();
 		RoverRotateLeftCommand left = new RoverRotateLeftCommand(roverMover);
 		left.execute();
 		RoverMoveBackwardCommand backward = new RoverMoveBackwardCommand(roverMover);

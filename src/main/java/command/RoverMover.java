@@ -3,8 +3,6 @@ package command;
 public class RoverMover {
 	private static RoverMover roverMover;
 	private Rover rover;
-	private PointMover pm;
-	private DirectionChanger dc;
 	private RoverMover(Rover rover) {
 		this.rover = rover;
 	}
@@ -14,18 +12,8 @@ public class RoverMover {
 			roverMover = new RoverMover(rover);
 		}
 		else roverMover.setRover(rover);
-		roverMover.setPointMover(rover);
-		roverMover.setDirectionChanger(rover);
 
 		return roverMover;		
-	}
-
-	private void setPointMover(Rover rover) {
-		roverMover.pm = new PointMover(rover.getPoint());
-	}
-
-	private void setDirectionChanger(Rover rover) {
-		roverMover.dc = new DirectionChanger(rover.getOrientation());
 	}
 
 	private void setRover(Rover rover) {
@@ -33,6 +21,7 @@ public class RoverMover {
 	}
 	
 	public void moveForward() {
+		PointMover pm = new PointMover(rover.getLocation());
 		switch(rover.getDirection()) {
 		case NORTH:
 			pm.moveNorth();
@@ -50,6 +39,7 @@ public class RoverMover {
 	}
 	
 	public void moveBackward() {
+		PointMover pm = new PointMover(rover.getLocation());
 		switch(rover.getDirection()) {
 		case NORTH:
 			pm.moveSouth();
@@ -67,10 +57,12 @@ public class RoverMover {
 	}
 	
 	public void rotateRight() {
+		DirectionChanger dc = DirectionChanger.getDirectionChanger(rover.getOrientation());
 		dc.rotateRight();
 	}
 	
 	public void rotateLeft() {
+		DirectionChanger dc = DirectionChanger.getDirectionChanger(rover.getOrientation());
 		dc.rotateLeft();
 	}
 }

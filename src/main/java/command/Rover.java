@@ -32,7 +32,7 @@ public class Rover {
 		return direction;
 	}
 	
-	public  Point getPoint() {
+	public  Point getLocation() {
 		return location;
 	}
 }
