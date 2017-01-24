@@ -1,13 +1,13 @@
 package command;
 
 public class RoverRotateRightCommand implements Command {
-	private RoverMover rm;
+	private Rover rover;
 	
-	public RoverRotateRightCommand(RoverMover rm) {
-		this.rm = rm;
+	public RoverRotateRightCommand(Rover rm) {
+		this.rover = rm;
 	}
 	
 	public void execute() {
-		rm.rotateRight();
+		rover.rotateRight();
 	}
 }

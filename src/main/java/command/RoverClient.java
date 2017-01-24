@@ -23,8 +23,7 @@ public class RoverClient {
                 rover.setDirection(Direction.getDirectionByString(dir));
                 in.nextLine();
 
-                RoverMover roverMover = RoverMover.getRoverMover(rover);
-                RoverControl control = new RoverControl(roverMover);
+                RoverControl control = new RoverControl(rover);
 
                 System.out.println("Enter a string of commands (no spaces)...");
                 System.out.println("f = forward, b = backward, l = left, r = right: ");

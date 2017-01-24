@@ -15,9 +15,6 @@ public class GridTests {
 
     @Test
     public void verifyObstaclesArePresent() {
-        for (GridObject g: grid.getGridObjectList()) {
-            System.out.println(g.toString());
-        }
         assertEquals(10, grid.getGridObjectList().size());
     }
 
@@ -35,12 +32,14 @@ public class GridTests {
     public void unoccupiedPointReturnsFalse() {
         Point p = new Point();
         Random r = new Random();
-        int x = r.nextInt(10);
-        int y = r.nextInt(10);
-        p.setX(x);
-        p.setY(y);
-        if (!grid.getGridObjectList().contains(p)) {
-            assertFalse(grid.pointIsOccupied(p));
+        do {
+            int x = r.nextInt(10);
+            int y = r.nextInt(10);
+            p.setX(x);
+            p.setY(y);
         }
+        while (grid.pointIsOccupied(p));
+        assertFalse(grid.pointIsOccupied(p));
+
     }
 }

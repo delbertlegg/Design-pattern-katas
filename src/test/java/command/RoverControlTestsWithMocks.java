@@ -8,31 +8,42 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 public class RoverControlTestsWithMocks {
-    RoverMover roverMover = Mockito.mock(RoverMover.class);
-    RoverControl control = new RoverControl(roverMover);
+    Rover rover = Mockito.mock(Rover.class);
+    RoverControl control = new RoverControl(rover);
 
     @Test
     public void TestRotateRight() {
         control.executeCommand("r");
-        verify(roverMover).rotateRight();
+        verify(rover).rotateRight();
     }
 
     @Test
     public void TestRotateLeft() {
         control.executeCommand("l");
-        verify(roverMover).rotateLeft();
+        verify(rover).rotateLeft();
     }
 
     @Test
     public void TestMoveForward() {
         control.executeCommand("f");
-        verify(roverMover).moveForward();
+        verify(rover).moveForward();
     }
 
     @Test
     public void TestMoveBackward() {
         control.executeCommand("b");
-        verify(roverMover).moveBackward();
+        verify(rover).moveBackward();
+    }
+
+    @Test
+    public void TestExceptionThrown() {
+        try {
+            control.executeCommand("g");
+            assertTrue(false);
+        }
+        catch (Exception e) {
+            assertTrue(true);
+        }
     }
 
 }

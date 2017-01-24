@@ -1,15 +1,13 @@
 package command;
 
-// TODO: Test with mocks?
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class RoverControl {
     private Map<String, Command> commands;
-    public RoverControl(RoverMover rm) {
+    public RoverControl(Rover rover) {
         commands = new HashMap<String, Command>();
-        setControls(rm);
+        setControls(rover);
     }
 
     public void executeCommand(String s) {
@@ -19,10 +17,10 @@ public class RoverControl {
         else throw new IllegalArgumentException(s + " is not a valid command.");
     }
 
-    public void setControls(RoverMover roverMover) {
-        commands.put("l", new RoverRotateLeftCommand(roverMover));
-        commands.put("r", new RoverRotateRightCommand(roverMover));
-        commands.put("f", new RoverMoveForwardCommand(roverMover));
-        commands.put("b", new RoverMoveBackwardCommand(roverMover));
+    public void setControls(Rover rover) {
+        commands.put("l", new RoverRotateLeftCommand(rover));
+        commands.put("r", new RoverRotateRightCommand(rover));
+        commands.put("f", new RoverMoveForwardCommand(rover));
+        commands.put("b", new RoverMoveBackwardCommand(rover));
     }
 }
