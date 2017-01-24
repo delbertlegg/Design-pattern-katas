@@ -11,7 +11,7 @@ public class RoverMoverWithMocks {
     RoverMover roverMover;
     @Before
     public void setUp() {
-        when(rover.getLocation()).thenReturn(new Point(0, 0));
+        when(rover.getLocation()).thenReturn(new Point());
         when(rover.getOrientation()).thenReturn(new Orientation());
         roverMover = RoverMover.getRoverMover(rover);
     }

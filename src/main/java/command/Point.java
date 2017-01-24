@@ -4,8 +4,9 @@ public class Point {
 	private int x;
 	private int y;
 	
-	public Point(int x, int y) {
-		this.y = y;
+	public Point() {
+		this.x = 0;
+		this.y = 0;
 	}
 
 	public int getX() {
@@ -23,4 +24,8 @@ public class Point {
 	public void setY(int y) {
 		this.y = y;
 	}
+
+	public boolean equals(Point point) {
+	    return (this.x == point.x && this.y == point.y);
+    }
 }

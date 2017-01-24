@@ -9,7 +9,7 @@ public class PointMoverTests {
 	
 	@Before
 	public void setUp() {
-		point = new Point(0, 0);
+		point = new Point();
 		pm = new PointMover(point);
 	}
 	
