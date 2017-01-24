@@ -22,17 +22,47 @@ public class GridClientIntegrationTests {
     }
 
     @Test
-    public void correctRoverYPosition() {
+    public void correctRoverXPositionGreaterThanDimension() {
+        rover.setLocation(22, 0);
+        rover.rotateRight();
+        gridClient.moveRover("f");
+        assertEquals(3, rover.getLocation().getX());
+    }
+
+    @Test
+    public void correctRoverYPositionGreaterThanDimension() {
         rover.setLocation(0, 22);
         gridClient.moveRover("f");
         assertEquals(3, rover.getLocation().getY());
     }
 
     @Test
-    public void correctRoverXPosition() {
+    public void correctRoverXPositionLessThanDimension() {
         rover.setLocation(-2, 0);
         rover.rotateRight();
         gridClient.moveRover("f");
         assertEquals(19, rover.getLocation().getX());
+    }
+
+    @Test
+    public void correctRoverYPositionLessThanDimension() {
+        rover.setLocation(0, -2);
+        gridClient.moveRover("f");
+        assertEquals(19, rover.getLocation().getY());
+    }
+
+    @Test
+    public void doNotCorrectRoverXPositionWithinDimension() {
+        rover.setLocation(1, 0);
+        rover.rotateRight();
+        gridClient.moveRover("f");
+        assertEquals(2, rover.getLocation().getX());
+    }
+
+    @Test
+    public void doNotCorrectRoverYPositionWithinDimension() {
+        rover.setLocation(0, 1);
+        gridClient.moveRover("f");
+        assertEquals(2, rover.getLocation().getY());
     }
 }
