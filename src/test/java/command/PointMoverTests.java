@@ -1,42 +1,39 @@
 package command;
 
-import static org.junit.Assert.*;
-
 import org.junit.*;
+import static org.junit.Assert.*;
 public class PointMoverTests {
 	Point point;
-	PointMover pm;
-	
+
 	@Before
 	public void setUp() {
-		point = new Point(0, 0);
-		pm = new PointMover(point);
+		point = new Point();
 	}
 	
 	@Test
 	public void PointMoverMovesPointNorth() {
-		pm.moveNorth();
+		point.moveNorth();
 		assertEquals(1, point.getY());
 		assertEquals(0, point.getX());
 	}
 	
 	@Test
 	public void PointMoverMovesPointSouth() {
-		pm.moveSouth();
+		point.moveSouth();
 		assertEquals(-1, point.getY());
 		assertEquals(0, point.getX());
 	}
 	
 	@Test
 	public void PointMoverMovesPointEast() {
-		pm.moveEast();
+		point.moveEast();
 		assertEquals(0, point.getY());
 		assertEquals(1, point.getX());
 	}
 	
 	@Test
 	public void PointMoverMovesPointWest() {
-		pm.moveWest();
+		point.moveWest();
 		assertEquals(0, point.getY());
 		assertEquals(-1, point.getX());
 	}

@@ -1,38 +1,67 @@
 package command;
 
-import java.util.InputMismatchException;
-
-public class Rover {
-	private static Rover rover;
-	private Orientation direction = new Orientation();
-	private Point location = new Point(0, 0);
+import static command.Direction.*;
+public class Rover extends GridObject {
+	protected Orientation direction = new Orientation();
 	private Rover() {}
 	
 	public static Rover getInstance() {
-		if (rover == null) {
-			rover = new Rover();
-		}
-		return rover;
+		return new Rover();
 	}
 
 	public void setDirection(Direction direction) {
 		this.direction.setDirection(direction);
 	}
-	
+
 	public Direction getDirection() {
 		return direction.getDirection();
 	}
 
-	public void setLocation(int x, int y) {
-		location.setX(x);
-		location.setY(y);
-	}
-
-	public  Orientation getOrientation() {
+	public Orientation getOrientation() {
 		return direction;
 	}
-	
-	public  Point getLocation() {
-		return location;
-	}
+
+    public void moveForward() {
+        switch(getDirection()) {
+            case NORTH:
+                getLocation().moveNorth();
+                break;
+            case SOUTH:
+                getLocation().moveSouth();
+                break;
+            case EAST:
+                getLocation().moveEast();
+                break;
+            case WEST:
+                getLocation().moveWest();
+                break;
+        }
+    }
+
+    public void moveBackward() {
+        switch(getDirection()) {
+            case NORTH:
+                getLocation().moveSouth();
+                break;
+            case SOUTH:
+                getLocation().moveNorth();
+                break;
+            case EAST:
+                getLocation().moveWest();
+                break;
+            case WEST:
+                getLocation().moveEast();
+                break;
+        }
+    }
+
+    public void rotateRight() {
+        getOrientation().rotateRight();
+    }
+
+    public void rotateLeft() {
+        getOrientation().rotateLeft();
+    }
+
+
 }

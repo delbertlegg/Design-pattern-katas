@@ -1,12 +1,12 @@
 package command;
 
 public class RoverMoveForwardCommand implements Command {
-    private RoverMover rm;
-    public RoverMoveForwardCommand(RoverMover rm) {
-        this.rm = rm;
+    private Rover rover;
+    public RoverMoveForwardCommand(Rover rover) {
+        this.rover = rover;
     }
 
     public void execute() {
-        rm.moveForward();
+        rover.moveForward();
     }
 }

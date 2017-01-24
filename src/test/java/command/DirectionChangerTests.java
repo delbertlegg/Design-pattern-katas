@@ -1,41 +1,39 @@
 package command;
 
-import static org.junit.Assert.*;
-
 import org.junit.*;
+import static org.junit.Assert.*;
 
 public class DirectionChangerTests {
 	Orientation dir;
-	DirectionChanger dc;
+
 	
 	@Before
 	public void setUp() {
 		dir = new Orientation();
-		dc = DirectionChanger.getDirectionChanger(dir);
 	}
 
 	@Test
 	public void roverRotates360clockwise() {
-		dc.rotateRight();
+		dir.rotateRight();
 		assertEquals(Direction.EAST, dir.getDirection());
-		dc.rotateRight();
+		dir.rotateRight();
 		assertEquals(Direction.SOUTH, dir.getDirection());
-		dc.rotateRight();
+		dir.rotateRight();
 		assertEquals(Direction.WEST, dir.getDirection());
-		dc.rotateRight();
+		dir.rotateRight();
 		assertEquals(Direction.NORTH, dir.getDirection());
 		
 	}
 	
 	@Test
 	public void roverRotates360counterClockwise() {
-		dc.rotateLeft();
+		dir.rotateLeft();
 		assertEquals(Direction.WEST,dir.getDirection());
-		dc.rotateLeft();
+		dir.rotateLeft();
 		assertEquals(Direction.SOUTH, dir.getDirection());
-		dc.rotateLeft();
+		dir.rotateLeft();
 		assertEquals(Direction.EAST, dir.getDirection());
-		dc.rotateLeft();
+		dir.rotateLeft();
 		assertEquals(Direction.NORTH, dir.getDirection());
 	}
 

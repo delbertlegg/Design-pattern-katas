@@ -15,7 +15,17 @@ public class Orientation {
 		this.direction = direction;
 	}
 
-	
+	public void rotateRight() {
+		setDirection(direction.next());
+	}
+
+	public void rotateLeft() {
+		setDirection(direction.previous());
+	}
+
+	public String toString() {
+		return direction.toString();
+	}
 }
 	
 
