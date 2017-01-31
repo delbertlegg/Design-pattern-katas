@@ -1,17 +1,18 @@
 package decorator;
 
 
-public class BicycleDecorator extends Bicycle {
-	protected Bicycle bicycle;
+public class BicycleDecorator extends decorator.Bicycle {
+	protected decorator.Bicycle bicycle;
 	
-	public static class Builder <T extends Builder> {		
-		protected Bicycle bicycle;
+	@SuppressWarnings("unchecked")
+    public static class Builder <T extends Builder> {
+		protected decorator.Bicycle bicycle;
 		protected String make;
 		protected String model;
 		protected String serialNumber;
 		protected double cost;
 		
-		public Builder (Bicycle b) {
+		public Builder (decorator.Bicycle b) {
 			this.bicycle = b;
 		}
 		

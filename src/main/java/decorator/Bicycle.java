@@ -51,7 +51,6 @@ public abstract class Bicycle extends TrackableItem {
 	
     @Override
 	public double value() {
-		// TODO Auto-generated method stub
 		return getItemCost();
 	}
 

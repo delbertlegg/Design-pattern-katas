@@ -9,9 +9,9 @@ public abstract class Attendee {
 	
 	public String display() {
 		return display.getDisplay();
-	};
-	
-	public String compete() {
+	}
+
+    public String compete() {
 		StringBuilder competing = new StringBuilder();
 		for (CompeteType type : compete) {
 			competing.append(type.compete());
