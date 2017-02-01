@@ -5,8 +5,6 @@ import java.util.*;
 
 public class ElectionResults {
 	private Map<Party, Integer> tally = new HashMap<Party, Integer>();
-
-
 	private ArrayList<Region> electionMap = new ArrayList<Region>();
 
 
