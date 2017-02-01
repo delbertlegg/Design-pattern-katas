@@ -2,7 +2,7 @@ package command;
 
 import java.util.Random;
 
-public class RoverSimulator {
+class RoverSimulator {
     public static void main(String[] args) {
         Grid grid = new Grid(10, 10);
         Rover rover = Rover.getInstance();

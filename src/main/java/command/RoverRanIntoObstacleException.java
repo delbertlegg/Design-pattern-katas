@@ -1,5 +1,5 @@
 package command;
 
-public class RoverRanIntoObstacleException extends Exception {
+class RoverRanIntoObstacleException extends Exception {
 
 }

@@ -3,7 +3,7 @@ package command;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RoverControl {
+class RoverControl {
     private Map<String, Command> commands;
     public RoverControl(Rover rover) {
         commands = new HashMap<String, Command>();

@@ -1,6 +1,6 @@
 package command;
 
-public class RoverRotateRightCommand implements Command {
+class RoverRotateRightCommand implements Command {
 	private Rover rover;
 	
 	public RoverRotateRightCommand(Rover rm) {

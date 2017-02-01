@@ -1,7 +1,7 @@
 package command;
 
 import static command.Direction.*;
-public class Rover extends GridObject {
+class Rover extends GridObject {
 	private Orientation direction = new Orientation();
 	private Rover() {}
 	

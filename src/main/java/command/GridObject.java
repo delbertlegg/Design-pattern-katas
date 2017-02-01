@@ -1,6 +1,6 @@
 package command;
 
-public abstract class GridObject {
+abstract class GridObject {
     protected Point location = new Point();
 
     public void setLocation(int x, int y) {
