@@ -1,6 +1,6 @@
 package command;
 
-public enum Direction {
+enum Direction {
 	NORTH("N"), EAST("E"), SOUTH("S"), WEST("W");
 	private final String stringVal;
 

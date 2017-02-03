@@ -1,6 +1,6 @@
 package command;
 
-public class RoverRotateLeftCommand implements Command {
+class RoverRotateLeftCommand implements Command {
 	private Rover rover;
 	public RoverRotateLeftCommand(Rover rover) {
 		this.rover = rover;

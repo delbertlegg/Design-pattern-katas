@@ -2,7 +2,7 @@ package command;
 
 import java.util.*;
 
-public class Grid {
+class Grid {
     private List<GridObject> gridObjectList = new ArrayList<GridObject>();
     private int dimension;
 

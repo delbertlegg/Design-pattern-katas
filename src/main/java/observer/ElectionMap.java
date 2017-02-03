@@ -12,10 +12,10 @@ public class ElectionMap implements Observer {
 	}
 
 	public void update(Observable o, Object arg) {
-		map = ((Election)o).getResults().getElectionMap();
+		map = ((Election)o).getElectionMap();
 		System.out.println("******* Election Map *********");
 		for (Region region : map) {
-			System.out.println(region.getName() + ": " + region.getWinningParty().getName());
+			System.out.println(region.getName() + ": " + region.getWinningPartyName());
 		}
 	}
 

@@ -1,5 +1,5 @@
 package command;
 
-public class Obstacle extends GridObject {
+class Obstacle extends GridObject {
 
 }

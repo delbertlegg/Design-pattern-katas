@@ -11,18 +11,31 @@ public class GridClient {
         this.roverControl = new RoverControl(rover);
     }
 
-    public void moveRover(String s) {
+    public void moveRover(String s) throws RoverRanIntoObstacleException {
+        Point p = rover.getLocation();
+        Point oldLocation = new Point(p.getX(), p.getY());
         roverControl.executeCommand(s);
+        if (grid.pointIsOccupied(rover.getLocation())) {
+        	rover.setLocation(oldLocation.getX(), oldLocation.getY());
+        	throw new RoverRanIntoObstacleException();
+        }
+
         correctRoverPosition();
     }
 
     protected void correctRoverPosition() {
         Point point = rover.getLocation();
-        if (point.getX() >= grid.getDimension() || point.getX() < 0){
-            rover.getLocation().setX((grid.getDimension() + point.getX()) % grid.getDimension());
-        }
-        if (point.getY() >= grid.getDimension() || point.getY() < 0) {
-            rover.getLocation().setY((grid.getDimension() + point.getY()) % grid.getDimension());
+        if (outsideGridBounds(point)){
+            wrapObjectPositionInGrid(point);
         }
     }
+
+	private void wrapObjectPositionInGrid(Point point) {
+		rover.setXPosition((grid.getDimension() + point.getX()) % grid.getDimension());
+		rover.setYPosition((grid.getDimension() + point.getY()) % grid.getDimension());
+	}
+
+	private boolean outsideGridBounds(Point point) {
+		return (point.getX() >= grid.getDimension() || point.getX() < 0) || (point.getY() >= grid.getDimension() || point.getY() < 0);
+	}
 }

@@ -22,6 +22,10 @@ public class Region {
 	public Party getWinningParty() {
 		return winningParty;
 	}
+	
+	public String getWinningPartyName() {
+		return winningParty.getName();
+	}
 
 	public void setWinningParty(Party winningParty) {
 		this.winningParty = winningParty;

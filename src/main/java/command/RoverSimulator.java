@@ -2,7 +2,7 @@ package command;
 
 import java.util.Random;
 
-public class RoverSimulator {
+class RoverSimulator {
     public static void main(String[] args) {
         Grid grid = new Grid(10, 10);
         Rover rover = Rover.getInstance();
@@ -11,18 +11,17 @@ public class RoverSimulator {
         Random r = new Random();
 
         for (int i = 0; i < 100; i++) {
-            String c = commands[r.nextInt(commands.length)];
-            Point p = rover.getLocation();
-            Point oldLocation = new Point(p.getX(), p.getY());
-            gridClient.moveRover(c);
-            if (grid.pointIsOccupied(rover.getLocation())) {
-                rover.setLocation(oldLocation.getX(), oldLocation.getY());
-                break;
+        	try {
+        		String c = commands[r.nextInt(commands.length)];
+                gridClient.moveRover(c);
+        	}
+            catch (RoverRanIntoObstacleException e) {
+            	break;
             }
         }
 
         System.out.println("Rover is pointing " + rover.getDirection());
-        System.out.println("Rover is at location " + rover.getLocation().getX() + ", "
-              + rover.getLocation().getY());
+        System.out.println("Rover is at location " + rover.getXPosition() + ", "
+              + rover.getYPosition());
     }
 }

@@ -1,6 +1,6 @@
 package command;
 
-public class Point {
+class Point {
 	private int x;
 	private int y;
 	

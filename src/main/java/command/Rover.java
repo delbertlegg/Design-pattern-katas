@@ -1,8 +1,8 @@
 package command;
 
 import static command.Direction.*;
-public class Rover extends GridObject {
-	protected Orientation direction = new Orientation();
+class Rover extends GridObject {
+	private Orientation direction = new Orientation();
 	private Rover() {}
 	
 	public static Rover getInstance() {
@@ -24,16 +24,16 @@ public class Rover extends GridObject {
     public void moveForward() {
         switch(getDirection()) {
             case NORTH:
-                getLocation().moveNorth();
+                location.moveNorth();
                 break;
             case SOUTH:
-                getLocation().moveSouth();
+                location.moveSouth();
                 break;
             case EAST:
-                getLocation().moveEast();
+                location.moveEast();
                 break;
             case WEST:
-                getLocation().moveWest();
+                location.moveWest();
                 break;
         }
     }
@@ -41,26 +41,26 @@ public class Rover extends GridObject {
     public void moveBackward() {
         switch(getDirection()) {
             case NORTH:
-                getLocation().moveSouth();
+                location.moveSouth();
                 break;
             case SOUTH:
-                getLocation().moveNorth();
+                location.moveNorth();
                 break;
             case EAST:
-                getLocation().moveWest();
+                location.moveWest();
                 break;
             case WEST:
-                getLocation().moveEast();
+                location.moveEast();
                 break;
         }
     }
 
     public void rotateRight() {
-        getOrientation().rotateRight();
+        direction.rotateRight();
     }
 
     public void rotateLeft() {
-        getOrientation().rotateLeft();
+        direction.rotateLeft();
     }
 
 
