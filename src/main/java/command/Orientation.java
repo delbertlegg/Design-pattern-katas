@@ -1,31 +1,31 @@
 package command;
-// change to class (orientation?) so direction can be changed as an object passed to directionchanger?
 
-class Orientation {	
-	private Direction direction;
-	public Orientation() {
-		setDirection(Direction.NORTH);
-	}
+class Orientation {
+    private Direction direction;
 
-	public Direction getDirection() {
-		return direction;
-	}
+    Orientation() {
+        setDirection(Direction.NORTH);
+    }
 
-	public void setDirection(Direction direction) {
-		this.direction = direction;
-	}
+    Direction getDirection() {
+        return direction;
+    }
 
-	public void rotateRight() {
-		setDirection(direction.next());
-	}
+    void setDirection(Direction direction) {
+        this.direction = direction;
+    }
 
-	public void rotateLeft() {
-		setDirection(direction.previous());
-	}
+    void rotateRight() {
+        setDirection(direction.next());
+    }
 
-	public String toString() {
-		return direction.toString();
-	}
+    void rotateLeft() {
+        setDirection(direction.previous());
+    }
+
+    public String toString() {
+        return direction.toString();
+    }
 }
-	
+
 

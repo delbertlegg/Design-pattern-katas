@@ -1,28 +1,22 @@
 package command;
 
-import static command.Direction.*;
 class Rover extends GridObject {
-	private Orientation direction = new Orientation();
-	private Rover() {}
-	
-	public static Rover getInstance() {
-		return new Rover();
-	}
+    private final Orientation direction = new Orientation();
 
-	public void setDirection(Direction direction) {
-		this.direction.setDirection(direction);
-	}
+    static Rover getInstance() {
+        return new Rover();
+    }
 
-	public Direction getDirection() {
-		return direction.getDirection();
-	}
+    Direction getDirection() {
+        return direction.getDirection();
+    }
 
-	public Orientation getOrientation() {
-		return direction;
-	}
+    void setDirection(Direction direction) {
+        this.direction.setDirection(direction);
+    }
 
-    public void moveForward() {
-        switch(getDirection()) {
+    void moveForward() {
+        switch (getDirection()) {
             case NORTH:
                 location.moveNorth();
                 break;
@@ -38,8 +32,8 @@ class Rover extends GridObject {
         }
     }
 
-    public void moveBackward() {
-        switch(getDirection()) {
+    void moveBackward() {
+        switch (getDirection()) {
             case NORTH:
                 location.moveSouth();
                 break;
@@ -55,12 +49,18 @@ class Rover extends GridObject {
         }
     }
 
-    public void rotateRight() {
+    void rotateRight() {
         direction.rotateRight();
     }
 
-    public void rotateLeft() {
+    void rotateLeft() {
         direction.rotateLeft();
+    }
+
+    public String toString() {
+        return "Rover is pointing " + getDirection() +
+                "\nRover is at location " + getXPosition() + ", "
+                + getYPosition();
     }
 
 

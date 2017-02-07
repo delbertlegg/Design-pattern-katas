@@ -4,20 +4,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 class RoverControl {
-    private Map<String, Command> commands;
-    public RoverControl(Rover rover) {
-        commands = new HashMap<String, Command>();
+    private final Map<String, Command> commands;
+
+    RoverControl(Rover rover) {
+        commands = new HashMap<>();
         setControls(rover);
     }
 
-    public void executeCommand(String s) {
-        if (commands.get(s) != null){
+    void executeCommand(String s) {
+        if (commands.get(s) != null) {
             commands.get(s).execute();
-        }
-        else throw new IllegalArgumentException(s + " is not a valid command.");
+        } else throw new IllegalArgumentException(s + " is not a valid command.");
     }
 
-    public void setControls(Rover rover) {
+    private void setControls(Rover rover) {
         commands.put("l", new RoverRotateLeftCommand(rover));
         commands.put("r", new RoverRotateRightCommand(rover));
         commands.put("f", new RoverMoveForwardCommand(rover));

@@ -1,8 +1,9 @@
 package command;
 
 class RoverMoveBackwardCommand implements Command {
-    private Rover rover;
-    public RoverMoveBackwardCommand(Rover rover) {
+    private final Rover rover;
+
+    RoverMoveBackwardCommand(Rover rover) {
         this.rover = rover;
     }
 

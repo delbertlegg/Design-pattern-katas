@@ -1,56 +1,56 @@
 package command;
 
 class Point {
-	private int x;
-	private int y;
-	
-	public Point() {
+    private int x;
+    private int y;
+
+    Point() {
         this.x = 0;
         this.y = 0;
     }
 
-    public Point(int x, int y) {
-	    this.x = x;
-	    this.y = y;
+    Point(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 
     public String toString() {
-	    return "x: " + x + ", y: " + y;
+        return "x: " + x + ", y: " + y;
     }
 
-	public int getX() {
-		return x;
-	}
-
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	public int getY() {
-		return y;
-	}
-
-	public void setY(int y) {
-		this.y = y;
-	}
-
-	public boolean equals(Point point) {
-	    return (this.x == point.x && this.y == point.y);
+    int getX() {
+        return x;
     }
 
-    public void moveNorth() {
+    void setX(int x) {
+        this.x = x;
+    }
+
+    int getY() {
+        return y;
+    }
+
+    void setY(int y) {
+        this.y = y;
+    }
+
+    boolean equals(Point point) {
+        return (this.x == point.x && this.y == point.y);
+    }
+
+    void moveNorth() {
         setY(getY() + 1);
     }
 
-    public void moveSouth() {
+    void moveSouth() {
         setY(getY() - 1);
     }
 
-    public void moveEast() {
+    void moveEast() {
         setX(getX() + 1);
     }
 
-    public void moveWest() {
+    void moveWest() {
         setX(getX() - 1);
     }
 }
