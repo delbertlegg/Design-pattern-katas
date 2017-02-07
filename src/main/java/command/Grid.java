@@ -1,18 +1,21 @@
 package command;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.function.Predicate;
 
 class Grid {
-    private List<GridObject> gridObjectList = new ArrayList<GridObject>();
-    private int dimension;
+    private final List<GridObject> gridObjectList = new ArrayList<>();
+    private final int dimension;
 
-    public List<GridObject> getGridObjectList() {
-        return gridObjectList;
-    }
-
-    public Grid(int dimension, int numberOfObstacles) {
+    Grid(int dimension, int numberOfObstacles) {
         this.dimension = dimension;
         generateObstacles(numberOfObstacles);
+    }
+
+    List<GridObject> getGridObjectList() {
+        return gridObjectList;
     }
 
     private void generateObstacles(int numberOfObstacles) {
@@ -24,17 +27,14 @@ class Grid {
         }
     }
 
-    public boolean pointIsOccupied(Point p) {
-        for (GridObject g : gridObjectList) {
-            if (p.equals(g.getLocation())) {
-                System.out.println(p.toString() + " is occupied.");
-                return true;
-            }
-        }
-        return false;
+    boolean pointIsOccupied(Point p) {
+        Predicate<GridObject> locationIsOccupiedByPoint = g -> p.equals(g.getLocation());
+        return gridObjectList.stream()
+                .anyMatch(locationIsOccupiedByPoint);
+//
     }
 
-    public int getDimension() {
+    int getDimension() {
         return dimension;
     }
 }
