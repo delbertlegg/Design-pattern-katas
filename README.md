@@ -11,4 +11,4 @@ Based on kata at https://technologyconversations.com/2014/10/17/java-tutorial-th
 ## Babysitter Kata
 Based on kata at https://gist.github.com/jameskbride/5482722
 ## Roman Numeral Kata
-Based on kaeta at http://agilekatas.co.uk/katas/romannumerals-kata
+Based on kata at http://agilekatas.co.uk/katas/romannumerals-kata
