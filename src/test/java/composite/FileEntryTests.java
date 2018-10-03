@@ -24,6 +24,6 @@ public class FileEntryTests {
 
     @Test
     public void testGetFileName() {
-        assertEquals("Mock", entry.toString());
+        assertEquals("Mock", entry.getName());
     }
 }

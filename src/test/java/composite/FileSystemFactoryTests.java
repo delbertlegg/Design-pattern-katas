@@ -21,7 +21,8 @@ public class FileSystemFactoryTests {
 
     @Test
     public void testFactoryReturnsDirectoryWhenDirectoryIsPassed() {
-        when(f.isDirectory()).thenReturn(true);
+        when(f.isDirectory()).thenReturn(true); 
+        when(f.listFiles()).thenReturn(new File[]{new File("")});
         entry = FileSystemFactory.getComponent(f);
         assertTrue(entry instanceof DirectoryEntry);
     }
